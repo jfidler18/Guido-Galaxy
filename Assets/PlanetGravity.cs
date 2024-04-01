@@ -34,7 +34,7 @@ public class PlayerGravity : MonoBehaviour
         // Perform the SphereCast
         bool hasHit = Physics.SphereCast(transform.position, sphereRadius, castDirection, out hitInfo, castDistance);
 
-        if (hasHit)
+        if (hasHit && hitInfo.collider.CompareTag("Planet"))
         {
             isGrounded = true;
             groundNormal = hitInfo.normal;
@@ -85,6 +85,6 @@ public class PlayerGravity : MonoBehaviour
         }
     }
 
-
+    
 }
 
